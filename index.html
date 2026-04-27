@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>擲骰子和撲克牌</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            font-size: 24px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .dice {
+            font-size: 48px;
+        }
+        .card {
+            font-size: 36px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>擲骰子和撲克牌</h1>
+        
+        <div class="section">
+            <h2>擲骰子</h2>
+            <button onclick="rollDice()">擲骰子</button>
+            <div class="result dice" id="diceResult">-</div>
+        </div>
+        
+        <div class="section">
+            <h2>抽撲克牌</h2>
+            <button onclick="drawCard()">抽牌</button>
+            <div class="result card" id="cardResult">-</div>
+        </div>
+    </div>
+
+    <script>
+        function rollDice() {
+            const result = Math.floor(Math.random() * 6) + 1;
+            document.getElementById('diceResult').textContent = result;
+        }
+
+        function drawCard() {
+            const suits = ['♠', '♥', '♦', '♣'];
+            const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+            
+            const suit = suits[Math.floor(Math.random() * suits.length)];
+            const value = values[Math.floor(Math.random() * values.length)];
+            
+            document.getElementById('cardResult').textContent = value + suit;
+        }
+    </script>
+</body>
+</html>
